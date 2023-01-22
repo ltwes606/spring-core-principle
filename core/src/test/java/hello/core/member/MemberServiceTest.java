@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class MemberServiceTest {
 
-    MemoryMemberRepository memberRepository = new MemoryMemberRepository();
+    MemberService memberService = new MemberServiceImpl(new MemoryMemberRepository());
 
     @Test
     void join() {
@@ -14,9 +14,11 @@ public class MemberServiceTest {
         Member member = new Member(1L, "memberA", Grade.VIP);
 
         // when
-        memberRepository.save(member);
+        memberService.join(member);
+        Member findMember = memberService.findMember(member.getId());
 
         // then
-        assertThat(memberRepository.findById(1L)).isSameAs(member);
+        assertThat(findMember).isSameAs(member);
     }
+
 }
