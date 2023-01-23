@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-public class XmlAppContext {
+public class XmlAppContextTest {
 
     GenericXmlApplicationContext ac = new GenericXmlApplicationContext("appConfig.xml");
 
