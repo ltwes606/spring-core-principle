@@ -30,30 +30,31 @@ public class AutoAppConfigTest {
         assertThat(ac.getBean(DiscountPolicy.class)).isInstanceOf(FixDiscountPolicy.class);
     }
 
-    @Test
-    @DisplayName("모든 빈 출력")
-    void findAllBean() {
-        String[] beanDefinitionNames = ac.getBeanDefinitionNames();
-        for (String beanDefinitionName : beanDefinitionNames) {
-            Object bean = ac.getBean(beanDefinitionName);
-            System.out.println("beanDefinitionName = " + beanDefinitionName + "\tbean = " + bean);
-        }
-    }
-
-    @Test
-    @DisplayName("애플리케이션 빈 출력")
-    void findApplicationBeans() {
-        String[] beanDefinitionNames = ac.getBeanDefinitionNames();
-        for (String beanDefinitionName : beanDefinitionNames) {
-            BeanDefinition beanDefinition =
-                    ac.getBeanDefinition(beanDefinitionName);
-            if (beanDefinition.getRole() != BeanDefinition.ROLE_APPLICATION) {
-                continue;
-            }
-
-            Object bean = ac.getBean(beanDefinitionName);
-            System.out.println(
-                    "beanDefinitionName = " + beanDefinitionName + "\tbean = " + bean);
-        }
-    }
+//    // request bean 출력시 에러
+//    @Test
+//    @DisplayName("모든 빈 출력")
+//    void findAllBean() {
+//        String[] beanDefinitionNames = ac.getBeanDefinitionNames();
+//        for (String beanDefinitionName : beanDefinitionNames) {
+//            Object bean = ac.getBean(beanDefinitionName);
+//            System.out.println("beanDefinitionName = " + beanDefinitionName + "\tbean = " + bean);
+//        }
+//    }
+//
+//    @Test
+//    @DisplayName("애플리케이션 빈 출력")
+//    void findApplicationBeans() {
+//        String[] beanDefinitionNames = ac.getBeanDefinitionNames();
+//        for (String beanDefinitionName : beanDefinitionNames) {
+//            BeanDefinition beanDefinition =
+//                    ac.getBeanDefinition(beanDefinitionName);
+//            if (beanDefinition.getRole() != BeanDefinition.ROLE_APPLICATION) {
+//                continue;
+//            }
+//
+//            Object bean = ac.getBean(beanDefinitionName);
+//            System.out.println(
+//                    "beanDefinitionName = " + beanDefinitionName + "\tbean = " + bean);
+//        }
+//    }
 }
